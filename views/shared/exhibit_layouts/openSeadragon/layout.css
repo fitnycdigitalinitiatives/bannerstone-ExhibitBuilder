@@ -1,0 +1,4 @@
+
+.exhibits.show #viewer .btnPrevious, .exhibits.show #viewer .btnNext {
+  display: none;
+}

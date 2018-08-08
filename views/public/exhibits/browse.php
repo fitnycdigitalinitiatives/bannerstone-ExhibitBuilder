@@ -2,45 +2,27 @@
 $title = __('Browse Exhibits');
 echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
 ?>
-<h1><?php echo $title; ?> <?php echo __('(%s total)', $total_results); ?></h1>
-<?php if (count($exhibits) > 0): ?>
 
-<nav class="navigation secondary-nav">
-    <?php echo nav(array(
-        array(
-            'label' => __('Browse All'),
-            'uri' => url('exhibits')
-        ),
-        array(
-            'label' => __('Browse by Tag'),
-            'uri' => url('exhibits/tags')
-        )
-    )); ?>
-</nav>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-6">
+        <h1 class="text-center mb-4">Bannerstone Essays</h1>
+        <p class="px-3 mb-4">
+          This section gives an overview of the scope of the essays.
+        </p>
 
-<?php echo pagination_links(); ?>
-
-<?php $exhibitCount = 0; ?>
-<?php foreach (loop('exhibit') as $exhibit): ?>
-    <?php $exhibitCount++; ?>
-    <div class="exhibit <?php if ($exhibitCount%2==1) echo ' even'; else echo ' odd'; ?>">
-        <h2><?php echo link_to_exhibit(); ?></h2>
-        <?php if ($exhibitImage = record_image($exhibit)): ?>
-            <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'image')); ?>
-        <?php endif; ?>
-        <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
-        <div class="description"><?php echo $exhibitDescription; ?></div>
-        <?php endif; ?>
-        <?php if ($exhibitTags = tag_string('exhibit', 'exhibits')): ?>
-        <p class="tags"><?php echo $exhibitTags; ?></p>
-        <?php endif; ?>
+        <ul class="leaders">
+        <?php foreach (loop('exhibit') as $exhibit): ?>
+          <li>
+            <span><?php echo exhibit_builder_link_to_exhibit($exhibit, null, array('class' => 'text-dark')); ?></span>
+            <span><?php echo exhibit_builder_link_to_exhibit($exhibit, date("m/d/Y", strtotime($exhibit->added)), array('class' => 'text-dark')); ?></span>
+          </li>
+        <?php endforeach; ?>
+        </ul>
+      </div>
     </div>
-<?php endforeach; ?>
+  </div>
 
 <?php echo pagination_links(); ?>
-
-<?php else: ?>
-<p><?php echo __('There are no exhibits available yet.'); ?></p>
-<?php endif; ?>
 
 <?php echo foot(); ?>

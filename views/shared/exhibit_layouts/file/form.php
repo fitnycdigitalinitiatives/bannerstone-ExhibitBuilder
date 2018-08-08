@@ -29,8 +29,7 @@ $options = $block->getOptions();
             @$options['file-size'], array(),
             array(
                 'fullsize' => __('Fullsize'),
-                'thumbnail' => __('Thumbnail'),
-                'square_thumbnail' => __('Square Thumbnail')
+                'thumbnail' => __('Thumbnail')
             ));
         ?>
     </div>

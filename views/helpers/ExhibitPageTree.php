@@ -2,7 +2,7 @@
 
 /**
  * View helper for a unordered list "tree" of pages in an exhibit.
- * 
+ *
  * @package ExhibitBuilder\View\Helper
  */
 class ExhibitBuilder_View_Helper_ExhibitPageTree extends Zend_View_Helper_Abstract
@@ -11,14 +11,14 @@ class ExhibitBuilder_View_Helper_ExhibitPageTree extends Zend_View_Helper_Abstra
      * @var Exhibit
      */
     protected $_exhibit;
-    
+
     /**
      * Pages, indexed by parent ID, for current exhibit
-     * 
+     *
      * @var array
      */
     protected $_pages;
-    
+
     /**
      * Return the tree of pages.
      *
@@ -58,22 +58,23 @@ class ExhibitBuilder_View_Helper_ExhibitPageTree extends Zend_View_Helper_Abstra
     protected function _renderPageBranch($page, $currentPage, $ancestorIds)
     {
         if ($currentPage && $page->id === $currentPage->id) {
-            $html = '<li class="current">';
+            $html = '<li class="nav-item active">';
         } else if ($ancestorIds && isset($ancestorIds[$page->id])) {
-            $html = '<li class="parent">';
+            $html = '<li class="nav-item active parent">';
         } else {
-            $html = '<li>';
+            $html = '<li class="nav-item">';
         }
 
-        $html .= '<a href="' . exhibit_builder_exhibit_uri($this->_exhibit, $page) . '">'
+        $html .= '<a class="nav-link" href="' . exhibit_builder_exhibit_uri($this->_exhibit, $page) . '">'
               . metadata($page, 'menu_title') .'</a>';
-        if (isset($this->_pages[$page->id])) {
+        /* if (isset($this->_pages[$page->id])) {
             $html .= '<ul>';
             foreach ($this->_pages[$page->id] as $childPage) {
                 $html .= $this->_renderPageBranch($childPage, $currentPage, $ancestorIds);
             }
             $html .= '</ul>';
         }
+        */
         $html .= '</li>';
         return $html;
     }
@@ -85,7 +86,7 @@ class ExhibitBuilder_View_Helper_ExhibitPageTree extends Zend_View_Helper_Abstra
      */
     protected function _renderListOpening()
     {
-        return '<ul>';
+        return '<ul class="navbar-nav">';
     }
 
     /**

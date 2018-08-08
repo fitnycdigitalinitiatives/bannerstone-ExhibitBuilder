@@ -154,6 +154,10 @@ class ExhibitLayout
             'file' => array(
                 'name' => __('File'),
                 'description' => __('Layout featuring a standalone file')
+            ),
+            'openSeadragon' => array(
+                'name' => __('Open Seadragon'),
+                'description' => __('Features Open Seadragon Zoom on Click and text')
             )
         );
 

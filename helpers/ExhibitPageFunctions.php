@@ -15,7 +15,7 @@ function exhibit_builder_render_exhibit_page($exhibitPage = null)
     if ($exhibitPage === null) {
         $exhibitPage = get_current_record('exhibit_page');
     }
-    
+
     $blocks = $exhibitPage->ExhibitPageBlocks;
     $rawAttachments = $exhibitPage->getAllAttachments();
     $attachments = array();
@@ -88,9 +88,9 @@ function exhibit_builder_page_nav($exhibitPage = null)
     $html .= '<li>';
     $html .= '<a class="exhibit-title" href="'. html_escape(exhibit_builder_exhibit_uri($exhibit)) . '">';
     $html .= html_escape($exhibit->title) .'</a></li>' . "\n";
-    
+
     $levelNumber = 1;
-    
+
     foreach ($pagesTrail as $page) {
         $pageExhibit = $page->getExhibit();
         $pageParent = $page->getParent();
@@ -289,7 +289,7 @@ function set_exhibit_pages_for_loop_by_exhibit($exhibit = null)
 
 /**
  * Get the children of a page.
- * 
+ *
  * @param ExhibitPage $exhibitPage The exhibit page. If null, uses the current page.
  * @return array[ExhibitPage]
  */
@@ -326,4 +326,17 @@ function exhibit_builder_page_summary($exhibitPage = null)
     }
     $html .= '</li>';
     return $html;
+}
+// Returns square thumbnail for specific file in item set, first by default
+function square_thumbnail_url($item, $file_id = 0) {
+  if (!isset($file_id)) {
+    $file_id = 0;
+  }
+  if ($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $file_id))) {
+    $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
+    $record_name = $fitdil_data["record-name"];
+    $record_id = $fitdil_data["record-id"];
+    $thumbnail_url = 'https://fitdil.fitnyc.edu/media/thumb/' . $record_id . '/' . $record_name . '/?square';
+    return $thumbnail_url;
+  }
 }

@@ -10,20 +10,12 @@ $captionPosition = isset($options['captions-position'])
     : 'center';
 ?>
 <div class="row">
-  <div class="col-md-8 <?php if ($position == 'right') {echo 'order-last';} ?>" id="image">
+  <div class="col-md-8" id="image">
     <div id="image-block">
       <?php
-        foreach ($attachments as $attachment) {
-          $item = $attachment->getItem();
-          $link = record_url($item, null, true);
-          $html = '<div class="d-flex">';
-          $html .= OpenSeadragonExhibit($item, @$attachment->file_id, $size);
-          $html .= '</div>';
-          if ($attachment['caption']) {
-            $html .= '<div class="exhibit-item-caption">' . $attachment['caption'] . '</div>';
-          }
-          echo $html;
-        };
+      $item = $attachments[0]->getItem();
+      $convert = new OpenSeadragon;
+      echo $convert->render($item);
       ?>
     </div>
   </div>
