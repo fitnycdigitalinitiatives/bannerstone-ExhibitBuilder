@@ -1,7 +1,10 @@
 <?php echo head(array('title' => metadata('exhibit', 'title'), 'bodyclass'=>'exhibits summary')); ?>
   <div class="container-fluid">
     <div id="exhibit-home">
-      <?php echo link_to_home_page('<i class="material-icons">close</i><span class="sr-only">Close</span>', array('role' => 'button', 'class' => 'btn btn-close', 'aria-label' => 'Close')); ?>
+      <a href="/exhibits" role="button" class="btn btn-close" aria-label="Close">
+        <i class="material-icons">close</i>
+        <span class="sr-only">Close</span>
+      </a>
     </div>
 
 

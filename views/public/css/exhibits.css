@@ -66,10 +66,14 @@
   border: none;
   opacity: 1;
   z-index: 1000;
-  display: none;
 }
 .btn-inform i {
   font-size: 20px;
+}
+.image-container .modal-footer .btn {
+  color: #fff;
+  background-color: #f9683b;
+  border-color: #f9683b;
 }
 #exhibit-nav .btn-arrow:active, .btn-close:active, .btn-inform:active {
   opacity: .7;
@@ -90,6 +94,14 @@
 }
 #exhibit-nav .btn-arrow i {
   font-size: 4rem;
+}
+#image-block .card {
+  border: 0;
+}
+#image-block .card .image-container {
+  margin: auto;
+  width: 100%;
+  position: relative;
 }
 #image-block img {
   border: 1px solid rgba(0,0,0,.125);
