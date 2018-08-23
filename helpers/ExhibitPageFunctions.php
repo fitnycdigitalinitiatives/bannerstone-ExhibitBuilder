@@ -329,10 +329,14 @@ function exhibit_builder_page_summary($exhibitPage = null)
 }
 // Returns square thumbnail for specific file in item set, first by default
 function square_thumbnail_url($item, $file_id = 0) {
-  if (($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $file_id))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
+  if (!isset($file_id)) {
+    $file_id = 0;
+  }
+  if ($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $file_id))) {
     $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
     $record_name = $fitdil_data["record-name"];
-    $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/250,/0/default.jpg';
-    return $url;
+    $record_id = $fitdil_data["record-id"];
+    $thumbnail_url = 'https://fitdil.fitnyc.edu/media/thumb/' . $record_id . '/' . $record_name . '/?square';
+    return $thumbnail_url;
   }
 }
