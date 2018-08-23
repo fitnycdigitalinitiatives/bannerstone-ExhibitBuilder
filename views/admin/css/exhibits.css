@@ -232,10 +232,15 @@
 
 #item-list .item-file {
     float: left;
-    width: 5%;
+    width: 30px;
     margin: 0 10px 0 0;
     line-height: 1em;
     border: 1px solid #D6D5C2;
+}
+#item-list .item-file img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
 }
 
 /* Item select: Search form */
@@ -341,6 +346,11 @@
     border: 1px solid #E7E7E7;
     padding: 5px;
     cursor: pointer;
+}
+.file-select .item-file img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
 }
 
 .file-select .item-file label {
