@@ -7,13 +7,13 @@ $captionPosition = isset($options['captions-position'])
     : 'center';
 ?>
 <div class="row">
-  <div class="col-md-8" id="image">
-    <div id="image-block">
+  <div class="col-md-7 col-lg-8 order-last order-md-first" id="image">
       <div class="card-deck">
         <?php
+          $attachment_count = count($attachments);
           foreach ($attachments as $attachment) {
             $item = $attachment->getItem();
-            $html = '<div class="card">';
+            $html = '<div class="card count-' . $attachment_count . '">';
             $html .= OpenSeadragonExhibit($item, @$attachment->file_id, $galleryFileSize);
             if ($attachment['caption']) {
               $html .= '<div class="exhibit-item-caption">' . $attachment['caption'] . '</div>';
@@ -23,9 +23,8 @@ $captionPosition = isset($options['captions-position'])
           };
         ?>
       </div>
-    </div>
   </div>
-  <div class="col-md-4" id="text">
+  <div class="col-md-5 col-lg-4 order-first order-md-last" id="text">
     <div id="text-block">
       <h1>
         <?php if ($pageParent = get_current_record('exhibit_page')->getParent()): ?>
