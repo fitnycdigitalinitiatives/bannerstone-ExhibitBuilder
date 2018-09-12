@@ -1,7 +1,7 @@
 <?php echo head(array('title' => metadata('exhibit', 'title'), 'bodyclass'=>'exhibits summary')); ?>
   <div class="container-fluid">
     <div class="d-none d-md-block" id="exhibit-home">
-      <a href="/exhibits" role="button" class="btn btn-close" aria-label="Close">
+      <a href="/" role="button" class="btn btn-close" aria-label="Close">
         <i class="material-icons">close</i>
         <span class="sr-only">Close</span>
       </a>

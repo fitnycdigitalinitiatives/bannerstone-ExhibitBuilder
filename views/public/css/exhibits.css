@@ -106,9 +106,6 @@ body.exhibits.show footer, body.exhibits.summary footer {
     padding-left: 3rem;
     padding-right: 1rem;
   }
-  #image .card-deck .card {
-    margin-bottom: 0;
-  }
   #image .card.count-1 {
     flex: 0 0 calc((100%) - 30px);
     height: calc(80vh - 56px);
