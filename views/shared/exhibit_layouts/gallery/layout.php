@@ -11,7 +11,7 @@ $captionPosition = isset($options['captions-position'])
       <div class="card-deck">
         <?php
           $attachment_count = count($attachments);
-          $item_list = [];
+          $item_list = array();
           foreach ($attachments as $attachment) {
             $item = $attachment->getItem();
             $html = '<div class="card count-' . $attachment_count . '">';
