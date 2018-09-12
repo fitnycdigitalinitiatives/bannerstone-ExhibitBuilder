@@ -11,6 +11,7 @@ $captionPosition = isset($options['captions-position'])
       <div class="card-deck">
         <?php
           $attachment_count = count($attachments);
+          $item_list = [];
           foreach ($attachments as $attachment) {
             $item = $attachment->getItem();
             $html = '<div class="card count-' . $attachment_count . '">';
@@ -20,6 +21,9 @@ $captionPosition = isset($options['captions-position'])
             }
             $html .= '</div>';
             echo $html;
+            $item_title = metadata($item, array('Dublin Core', 'Title'));
+            $item_url = record_url($item, null, true);
+            $item_list[$item_title] = $item_url;
           };
         ?>
       </div>
@@ -34,7 +38,19 @@ $captionPosition = isset($options['captions-position'])
         <?php endif; ?>
         <?php echo metadata('exhibit_page', 'title'); ?>
       </h1>
-      <?php echo $text; ?>
+      <?php
+        echo $text;
+        $html = '<ul class="list-inline">';
+        foreach ($item_list as $title => $url) {
+          $html .= '<li class="list-inline-item">';
+          $html .= '<a href="' . $url .'">';
+          $html .= '<i class="material-icons align-bottom">info</i> ' . $title;
+          $html .= '</a>';
+          $html .= '</li>';
+        }
+        $html .= '</ul>';
+        echo $html;
+      ?>
     </div>
   </div>
 </div>

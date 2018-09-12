@@ -1,5 +1,5 @@
 body.exhibits.show, body.exhibits.summary {
-  margin-bottom: 58px;
+  margin-bottom: 0;
 }
 body.exhibits.show footer, body.exhibits.summary footer {
   display: none;
@@ -52,7 +52,6 @@ body.exhibits.show footer, body.exhibits.summary footer {
   body.exhibits.show, body.exhibits.summary {
     height: 100vh;
     overflow: hidden;
-    margin-bottom: 0;
   }
   body.exhibits.show header, body.exhibits.summary header {
     display: none;

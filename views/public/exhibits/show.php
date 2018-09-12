@@ -26,7 +26,7 @@ echo head(array(
       <?php endif; ?>
     </div>
   </div>
-  <nav class="navbar navbar-expand-md fixed-bottom navbar-light bg-light" id="exhibit-footer">
+  <nav class="navbar navbar-expand-md fixed-bottom navbar-light bg-light d-none d-md-flex" id="exhibit-footer">
     <?php echo exhibit_builder_link_to_exhibit($exhibit, null, array('class' => 'navbar-brand')); ?>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFooter" aria-controls="navbarFooter" aria-expanded="false" aria-label="Toggle navigation">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false"><title>Menu</title><path stroke="#343a40" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path></svg>
