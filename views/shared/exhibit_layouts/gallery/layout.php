@@ -39,8 +39,7 @@ $captionPosition = isset($options['captions-position'])
         <?php echo metadata('exhibit_page', 'title'); ?>
       </h1>
       <?php
-        echo $text;
-        $html = '<ul class="list-inline">';
+        $html = '<ul class="list-inline mb-2">';
         foreach ($item_list as $title => $url) {
           $html .= '<li class="list-inline-item">';
           $html .= '<a href="' . $url .'">';
@@ -50,6 +49,7 @@ $captionPosition = isset($options['captions-position'])
         }
         $html .= '</ul>';
         echo $html;
+        echo $text;
       ?>
     </div>
   </div>
