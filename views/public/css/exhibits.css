@@ -68,43 +68,32 @@ body.exhibits.show footer, body.exhibits.summary footer {
   #exhibit-footer .nav-link {
     white-space: nowrap;
   }
-  #text, #image, #title {
+  .full-screen {
     height: calc(100vh - 56px); /*! View heigh minus any header or footer */
   }
-  #text, #title {
-    display: flex;
-  }
-  #text-block, #text-only-block, #title-block {
-    margin-top: auto;
-    margin-bottom: auto;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-  #text-block {
-    padding-left: 1rem;
-    padding-right: 3rem;
-  }
-  #image-block, #title-block {
-    padding-left: 3rem;
-    padding-right: 1rem;
-  }
-  #image-block {
-    margin: auto;
-  }
-  #text {
+  #text-only, #text {
     overflow-y: auto;
   }
-  #main-title, #title h1 {
-    font-size: 3.5rem;
+  #text-only-block, #text {
+    margin: auto;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  #text {
+    max-height: 100%;
+    padding-left: 2rem;
+    padding-right: 4rem;
+  }
+  #image {
+    margin: auto;
+    padding-left: 4rem;
+    padding-right: 2rem;
   }
   #image .card-deck {
-    height: 100%;
     align-content: center;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    padding-left: 3rem;
-    padding-right: 1rem;
   }
   #image .card.count-1 {
     flex: 0 0 calc((100%) - 30px);
@@ -152,22 +141,22 @@ body.exhibits.show footer, body.exhibits.summary footer {
   }
   #exhibit-home .btn-close {
     position: fixed;
-    top: 0;
-    right: 0;
-    padding: 1rem;
+    top: 1rem;
+    right: 1rem;
   }
   .btn-close i {
     font-size: 2rem;
   }
   #exhibit-nav .btnPrevious {
-    position: fixed;
-    left: 0;
-    top: calc(50vh - 56px);
+    margin-left: -3rem;
   }
   #exhibit-nav .btnNext {
-    position: fixed;
-    float: none;
-    right: 0;
-    top: calc(50vh - 56px);
+    margin-right: -3rem;
+  }
+  #text #exhibit-nav .btnPrevious {
+    margin-left: -3rem;
+  }
+  #text #exhibit-nav .btnNext {
+    margin-right: -3rem;
   }
 }

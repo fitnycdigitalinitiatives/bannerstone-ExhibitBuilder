@@ -15,7 +15,7 @@ echo head(array(
     <?php exhibit_builder_render_exhibit_page(); ?>
     </div>
 
-    <div id="exhibit-nav">
+    <div class="d-md-none" id="exhibit-nav">
       <?php if ($prevLink = exhibit_builder_link_to_previous_page('<i class="material-icons">keyboard_arrow_left</i><span class="sr-only">Previous</span>', array('role' => 'button', 'class' => 'btn btn-arrow btnPrevious', 'aria-label' => 'Previous'))): ?>
         <?php echo $prevLink; ?>
       <?php else: ?>

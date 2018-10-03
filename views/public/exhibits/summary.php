@@ -8,9 +8,8 @@
     </div>
 
 
-    <div class="row">
-      <div class="col-lg-6 col-md-8" id="text">
-        <div id="title-block">
+    <div class="row full-screen" id="text-only">
+      <div class="col-md-6 col-lg-5 col-xl-4" id="text-only-block">
           <h1 id="main-title">
             <?php echo metadata('exhibit', 'title'); ?>
           </h1>
@@ -24,7 +23,11 @@
               <?php echo $exhibitDescription; ?>
           </div>
           <?php endif; ?>
-      </div>
+          <div class="d-none d-md-block" id="exhibit-nav">
+            <?php if ($firstPage = $exhibit->getFirstTopPage()): ?>
+              <?php echo exhibit_builder_link_to_exhibit($exhibit, '<i class="material-icons">keyboard_arrow_right</i><span class="sr-only">Next</span>', array('role' => 'button', 'class' => 'btn btn-arrow btnNext', 'aria-label' => 'Next'), $firstPage); ?>
+            <?php endif; ?>
+          </div>
       </div>
     </div>
 
@@ -33,7 +36,7 @@
     if ($pageTree):
     ?>
     <?php endif; ?>
-    <div id="exhibit-nav">
+    <div class="d-md-none" id="exhibit-nav">
       <?php if ($firstPage = $exhibit->getFirstTopPage()): ?>
         <?php echo exhibit_builder_link_to_exhibit($exhibit, '<i class="material-icons">keyboard_arrow_right</i><span class="sr-only">Next</span>', array('role' => 'button', 'class' => 'btn btn-arrow btnNext', 'aria-label' => 'Next'), $firstPage); ?>
       <?php endif; ?>
