@@ -41,7 +41,7 @@ $captionPosition = isset($options['captions-position'])
       $html = '<ul class="list-inline mb-2">';
       foreach ($item_list as $title => $url) {
         $html .= '<li class="list-inline-item">';
-        $html .= '<a href="' . $url .'">';
+        $html .= '<a href="' . $url .'" target="_blank">';
         $html .= '<i class="material-icons align-bottom">info</i> ' . $title;
         $html .= '</a>';
         $html .= '</li>';

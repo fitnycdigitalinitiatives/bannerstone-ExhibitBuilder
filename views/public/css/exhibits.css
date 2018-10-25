@@ -30,6 +30,9 @@ body.exhibits.show footer, body.exhibits.summary footer {
 #exhibit-nav .btnNext {
   float: right;
 }
+.summary #credits {
+  font-size: 1.5rem;
+}
 #image .card-deck img {
   border: 1px solid rgba(0,0,0,.125);
   border-radius: 0;
@@ -58,6 +61,28 @@ body.exhibits.show footer, body.exhibits.summary footer {
   }
   body.exhibits.show #main-nav, body.exhibits.summary #main-nav {
     display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 500;
+  }
+  #exhibit-nav {
+    padding-bottom: 1rem;
+  }
+  #exhibit-nav .navbar-brand {
+    font-size: 1.5rem;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  #exhibit-nav .navbar-toggler {
+    position: fixed;
+    z-index: 1000;
+    top: .5rem;
+    left: .5rem;
+    opacity: 1;
+  }
+  #exhibit-nav .navbar-toggler:active, #exhibit-home .navbar-toggler:active {
+    opacity: .7;
   }
   body.exhibits.show main, body.exhibits.summary main {
     margin-top: 0;
@@ -69,7 +94,7 @@ body.exhibits.show footer, body.exhibits.summary footer {
     white-space: nowrap;
   }
   .full-screen {
-    height: calc(100vh - 56px); /*! View heigh minus any header or footer */
+    height: calc(100vh - 60px); /*! View heigh minus any header or footer */
   }
   #text-only, #text {
     overflow-y: auto;
@@ -97,52 +122,53 @@ body.exhibits.show footer, body.exhibits.summary footer {
   }
   #image .card.count-1 {
     flex: 0 0 calc((100%) - 30px);
-    height: calc(80vh - 56px);
+    height: calc(80vh - 60px);
   }
   #image .card.count-2 {
     flex: 0 0 calc((100%) - 30px);
-    height: calc(40vh - 56px);
+    height: calc(40vh - 60px);
   }
   #image .card.count-3, #image .card.count-4, #image .card.count-5, #image .card.count-6 {
     flex: 0 0 calc((100% / 2) - 30px);
-    height: calc(30vh - 56px);
+    height: calc(30vh - 60px);
   }
   #image .card.count-7, #image .card.count-8 {
     flex: 0 0 calc((100% / 2) - 30px);
-    height: calc(25vh - 56px);
+    height: calc(25vh - 60px);
   }
   @media (min-width: 992px) {
     #image .card.count-2 {
       flex: 0 0 calc((100% / 2) - 30px);
-      height: calc(80vh - 56px);
+      height: calc(80vh - 60px);
     }
     #image .card.count-3 {
       flex: 0 0 calc((100% / 3) - 30px);
-      height: calc(80vh - 56px);
+      height: calc(80vh - 60px);
     }
     #image .card.count-4 {
       flex: 0 0 calc((100% / 2) - 30px);
-      height: calc(40vh - 56px);
+      height: calc(40vh - 60px);
     }
     #image .card.count-5, #image .card.count-6 {
       flex: 0 0 calc((100% / 3) - 30px);
-      height: calc(40vh - 56px);
+      height: calc(40vh - 60px);
     }
     #image .card.count-7, #image .card.count-8 {
       flex: 0 0 calc((100% / 4) - 30px);
-      height: calc(40vh - 56px);
+      height: calc(40vh - 60px);
     }
   }
   @media (min-width: 1200px) {
     #image .card.count-4 {
       flex: 0 0 calc((100% / 4) - 30px);
-      height: calc(80vh - 56px);
+      height: calc(80vh - 60px);
     }
   }
   #exhibit-home .btn-close {
     position: fixed;
     top: 1rem;
-    right: 1rem;
+    right: 2rem;
+    z-index: 1000;
   }
   .btn-close i {
     font-size: 2rem;
