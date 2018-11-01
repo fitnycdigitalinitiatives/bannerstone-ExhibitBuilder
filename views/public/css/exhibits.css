@@ -4,14 +4,6 @@ body.exhibits.show, body.exhibits.summary {
 body.exhibits.show footer, body.exhibits.summary footer {
   display: none;
 }
-#exhibit-footer {
-  position: absolute;
-}
-#exhibit-footer .navbar-brand {
-  max-width: 75%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 #exhibit-nav .btn-arrow, #exhibit-home .btn-close {
   line-height: 1;
   background-color: transparent;
@@ -60,41 +52,18 @@ body.exhibits.show footer, body.exhibits.summary footer {
     display: none;
   }
   body.exhibits.show #main-nav, body.exhibits.summary #main-nav {
-    display: none;
-    position: fixed;
     top: 0;
     width: 100%;
     z-index: 500;
   }
-  #exhibit-nav {
-    padding-bottom: 1rem;
-  }
-  #exhibit-nav .navbar-brand {
-    font-size: 1.5rem;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  #exhibit-nav .navbar-toggler {
-    position: fixed;
-    z-index: 1000;
-    top: .5rem;
-    left: .5rem;
-    opacity: 1;
-  }
-  #exhibit-nav .navbar-toggler:active, #exhibit-home .navbar-toggler:active {
-    opacity: .7;
-  }
   body.exhibits.show main, body.exhibits.summary main {
     margin-top: 0;
   }
-  #exhibit-footer {
-    position: fixed;
-  }
-  #exhibit-footer .nav-link {
-    white-space: nowrap;
+  #exhibit-footer .navbar-brand {
+    font-size: 1.5rem;
   }
   .full-screen {
-    height: calc(100vh - 60px); /*! View heigh minus any header or footer */
+    height: calc(100vh - (60px + 62px)); /*! View heigh minus any header or footer */
   }
   #text-only, #text {
     overflow-y: auto;
