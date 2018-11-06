@@ -59,11 +59,8 @@ body.exhibits.show footer, body.exhibits.summary footer {
   body.exhibits.show main, body.exhibits.summary main {
     margin-top: 0;
   }
-  #exhibit-footer .navbar-brand {
-    font-size: 1.5rem;
-  }
   .full-screen {
-    height: calc(100vh - (60px + 62px)); /*! View heigh minus any header or footer */
+    height: calc(100vh - (60px + 56px)); /*! View heigh minus any header or footer */
   }
   #text-only, #text {
     overflow-y: auto;
