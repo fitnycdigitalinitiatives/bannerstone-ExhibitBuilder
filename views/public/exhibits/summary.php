@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
   <div class="row full-screen" id="text-only">
-    <div class="col-md-7 col-lg-6 col-xl-5" id="text-only-block" style="max-width:700px;">
+    <div class="col-md-7 col-lg-6 col-xl-5" id="text-only-block">
       <h1 class="text-center" id="main-title">
         <?php echo metadata('exhibit', 'title'); ?>
       </h1>
