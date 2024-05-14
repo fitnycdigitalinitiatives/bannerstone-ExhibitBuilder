@@ -1,10 +1,15 @@
-body.exhibits.show, body.exhibits.summary {
+body.exhibits.show,
+body.exhibits.summary {
   margin-bottom: 0;
 }
-body.exhibits.show footer, body.exhibits.summary footer {
+
+body.exhibits.show footer,
+body.exhibits.summary footer {
   display: none;
 }
-#exhibit-nav .btn-arrow, #exhibit-home .btn-close {
+
+#exhibit-nav .btn-arrow,
+#exhibit-home .btn-close {
   line-height: 1;
   background-color: transparent;
   padding: 0;
@@ -13,20 +18,26 @@ body.exhibits.show footer, body.exhibits.summary footer {
   opacity: 1;
   z-index: 1000;
 }
-#exhibit-nav .btn-arrow:active, #exhibit-home .btn-close:active {
+
+#exhibit-nav .btn-arrow:active,
+#exhibit-home .btn-close:active {
   opacity: .7;
 }
+
 #exhibit-nav .btn-arrow i {
   font-size: 3rem;
 }
+
 #exhibit-nav .btnNext {
   float: right;
 }
+
 .summary #credits {
   font-size: 1.5rem;
 }
+
 #image .card-deck img {
-  border: 1px solid rgba(0,0,0,.125);
+  border: 1px solid rgba(0, 0, 0, .125);
   border-radius: 0;
   cursor: zoom-in;
   margin: auto;
@@ -34,120 +45,166 @@ body.exhibits.show footer, body.exhibits.summary footer {
   max-width: 100%;
   max-height: 100%;
 }
+
 #image .card-deck .card {
   border: 0;
 }
+
 @media (min-width: 576px) {
   #image .card {
     flex: 0 0 calc((100%) - 30px);
     margin-bottom: 15px;
   }
 }
+
 @media (min-width: 768px) {
-  body.exhibits.show, body.exhibits.summary {
+
+  body.exhibits.show,
+  body.exhibits.summary {
     height: 100vh;
     overflow: hidden;
   }
-  body.exhibits.show header, body.exhibits.summary header {
+
+  body.exhibits.show header,
+  body.exhibits.summary header {
     display: none;
   }
-  body.exhibits.show #main-nav, body.exhibits.summary #main-nav {
+
+  body.exhibits.show #main-nav,
+  body.exhibits.summary #main-nav {
     top: 0;
     width: 100%;
     z-index: 500;
   }
-  body.exhibits.show main, body.exhibits.summary main {
+
+  body.exhibits.show main,
+  body.exhibits.summary main {
     margin-top: 0;
   }
+
   .full-screen {
-    height: calc(100vh - (60px + 56px)); /*! View heigh minus any header or footer */
+    height: calc(100vh - (60px + 56px));
+    /*! View heigh minus any header or footer */
   }
-  #text-only, #text {
+
+  #text-only,
+  #text {
     overflow-y: auto;
   }
-  #text-only-block, #text {
+
+  #text-only-block,
+  #text {
     margin: auto;
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
+
+  #text-only-block {
+    max-width: 700px;
+  }
+
   #text {
     max-height: 100%;
     padding-left: 2rem;
     padding-right: 4rem;
   }
+
   #image {
     margin: auto;
     padding-left: 4rem;
     padding-right: 2rem;
   }
+
   #image .card-deck {
     align-content: center;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
   }
+
   #image .card.count-1 {
     flex: 0 0 calc((100%) - 30px);
     height: calc(80vh - 60px);
   }
+
   #image .card.count-2 {
     flex: 0 0 calc((100%) - 30px);
     height: calc(40vh - 60px);
   }
-  #image .card.count-3, #image .card.count-4, #image .card.count-5, #image .card.count-6 {
+
+  #image .card.count-3,
+  #image .card.count-4,
+  #image .card.count-5,
+  #image .card.count-6 {
     flex: 0 0 calc((100% / 2) - 30px);
     height: calc(30vh - 60px);
   }
-  #image .card.count-7, #image .card.count-8 {
+
+  #image .card.count-7,
+  #image .card.count-8 {
     flex: 0 0 calc((100% / 2) - 30px);
     height: calc(25vh - 60px);
   }
+
   @media (min-width: 992px) {
     #image .card.count-2 {
       flex: 0 0 calc((100% / 2) - 30px);
       height: calc(80vh - 60px);
     }
+
     #image .card.count-3 {
       flex: 0 0 calc((100% / 3) - 30px);
       height: calc(80vh - 60px);
     }
+
     #image .card.count-4 {
       flex: 0 0 calc((100% / 2) - 30px);
       height: calc(40vh - 60px);
     }
-    #image .card.count-5, #image .card.count-6 {
+
+    #image .card.count-5,
+    #image .card.count-6 {
       flex: 0 0 calc((100% / 3) - 30px);
       height: calc(40vh - 60px);
     }
-    #image .card.count-7, #image .card.count-8 {
+
+    #image .card.count-7,
+    #image .card.count-8 {
       flex: 0 0 calc((100% / 4) - 30px);
       height: calc(40vh - 60px);
     }
   }
+
   @media (min-width: 1200px) {
     #image .card.count-4 {
       flex: 0 0 calc((100% / 4) - 30px);
       height: calc(80vh - 60px);
     }
   }
+
   #exhibit-home .btn-close {
     position: fixed;
     top: 1rem;
     right: 2rem;
     z-index: 1000;
   }
+
   .btn-close i {
     font-size: 2rem;
   }
+
   #exhibit-nav .btnPrevious {
     margin-left: -3rem;
   }
+
   #exhibit-nav .btnNext {
     margin-right: -3rem;
   }
+
   #text #exhibit-nav .btnPrevious {
     margin-left: -3rem;
   }
+
   #text #exhibit-nav .btnNext {
     margin-right: -3rem;
   }

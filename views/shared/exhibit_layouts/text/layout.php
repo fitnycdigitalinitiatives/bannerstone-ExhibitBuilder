@@ -1,5 +1,5 @@
 <div class="row full-screen" id="text-only">
-  <div class="col-md-6 col-lg-5 col-xl-4" id="text-only-block">
+  <div class="col-md-7 col-lg-6 col-xl-5" id="text-only-block" style="max-width:700px;">
     <h1>
       <?php if ($pageParent = get_current_record('exhibit_page')->getParent()): ?>
         <small class="text-muted">
