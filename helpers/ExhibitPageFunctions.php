@@ -86,8 +86,8 @@ function exhibit_builder_page_nav($exhibitPage = null)
     $pagesTrail = $exhibitPage->getAncestors();
     $pagesTrail[] = $exhibitPage;
     $html .= '<li>';
-    $html .= '<a class="exhibit-title" href="'. html_escape(exhibit_builder_exhibit_uri($exhibit)) . '">';
-    $html .= html_escape($exhibit->title) .'</a></li>' . "\n";
+    $html .= '<a class="exhibit-title" href="' . html_escape(exhibit_builder_exhibit_uri($exhibit)) . '">';
+    $html .= html_escape($exhibit->title) . '</a></li>' . "\n";
 
     $levelNumber = 1;
 
@@ -97,7 +97,7 @@ function exhibit_builder_page_nav($exhibitPage = null)
         $pageSiblings = ($pageParent ? exhibit_builder_child_pages($pageParent) : $pageExhibit->getTopPages());
 
         $html .= "<li>\n<ul class=\"exhibit-nav-level-$levelNumber\">\n";
-        $levelNumber +=1;
+        $levelNumber += 1;
 
         foreach ($pageSiblings as $pageSibling) {
             $html .= '<li' . ($pageSibling->id == $page->id ? ' class="current"' : '') . '>';
@@ -186,7 +186,7 @@ function exhibit_builder_link_to_previous_page($text = null, $props = array(), $
     // a link to the last page on the previous parent page, or the exhibit if at top level
     $previousPage = $exhibitPage->previousOrParent();
     if ($previousPage) {
-        if(!isset($props['class'])) {
+        if (!isset($props['class'])) {
             $props['class'] = 'previous-page';
         }
         if ($text === null) {
@@ -245,9 +245,9 @@ function exhibit_builder_link_to_parent_page($text = null, $props = array(), $ex
     }
     $exhibit = get_record_by_id('Exhibit', $exhibitPage->exhibit_id);
 
-    if($exhibitPage->parent_id) {
+    if ($exhibitPage->parent_id) {
         $parentPage = $exhibitPage->getParent();
-        if(!isset($props['class'])) {
+        if (!isset($props['class'])) {
             $props['class'] = 'parent-page';
         }
         if ($text === null) {
@@ -280,7 +280,7 @@ function set_exhibit_pages_for_loop_by_parent_page($exhibitPage = null)
  */
 function set_exhibit_pages_for_loop_by_exhibit($exhibit = null)
 {
-    if(!$exhibit) {
+    if (!$exhibit) {
         $exhibit = get_current_record('exhibit');
     }
 
@@ -295,7 +295,7 @@ function set_exhibit_pages_for_loop_by_exhibit($exhibit = null)
  */
 function exhibit_builder_child_pages($exhibitPage = null)
 {
-    if(!$exhibitPage) {
+    if (!$exhibitPage) {
         $exhibitPage = get_current_record('exhibit_page');
     }
 
@@ -312,8 +312,8 @@ function exhibit_builder_page_summary($exhibitPage = null)
     }
 
     $html = '<li>'
-          . '<a href="' . exhibit_builder_exhibit_uri(get_current_record('exhibit'), $exhibitPage) . '">'
-          . metadata($exhibitPage, 'menu_title') .'</a>';
+        . '<a href="' . exhibit_builder_exhibit_uri(get_current_record('exhibit'), $exhibitPage) . '">'
+        . metadata($exhibitPage, 'menu_title') . '</a>';
 
     $children = $exhibitPage->getChildPages();
     if ($children) {
@@ -328,11 +328,20 @@ function exhibit_builder_page_summary($exhibitPage = null)
     return $html;
 }
 // Returns square thumbnail for specific file in item set, first by default
-function square_thumbnail_url($item, $file_id = 0) {
-  if (($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $file_id))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
-    $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
-    $record_name = $fitdil_data["record-name"];
-    $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/250,/0/default.jpg';
-    return $url;
-  }
+function square_thumbnail_url($item, $file_id = 0)
+{
+    if (($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $file_id))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
+        $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
+        $record_name = $fitdil_data["record-name"];
+        if ((metadata($item, 'Collection Name')) == 'American Museum of Natural History') {
+            $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/600,/0/default.jpg';
+        } else {
+            $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '/full/600,/0/default.jpg';
+        }
+        return $url;
+    } elseif (($s3_path = metadata($item, array('Item Type Metadata', 's3_path'), array('index' => $file_id)))) {
+        $path_parts = pathinfo($s3_path);
+        $url = str_replace("/objects", "/thumbnails", $path_parts['dirname']) . '/' . substr($path_parts['filename'], 0, 36) . '.jpg';
+        return $url;
+    }
 }
