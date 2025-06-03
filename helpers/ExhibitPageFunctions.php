@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @copyright Roy Rosenzweig Center for History and New Media, 2007-2012
  * @license http://www.gnu.org/licenses/gpl-3.0.txt
@@ -330,16 +331,7 @@ function exhibit_builder_page_summary($exhibitPage = null)
 // Returns square thumbnail for specific file in item set, first by default
 function square_thumbnail_url($item, $file_id = 0)
 {
-    if (($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $file_id))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
-        $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
-        $record_name = $fitdil_data["record-name"];
-        if ((metadata($item, 'Collection Name')) == 'American Museum of Natural History') {
-            $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/600,/0/default.jpg';
-        } else {
-            $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '/full/600,/0/default.jpg';
-        }
-        return $url;
-    } elseif (($s3_path = metadata($item, array('Item Type Metadata', 's3_path'), array('index' => $file_id)))) {
+    if (($s3_path = metadata($item, array('Item Type Metadata', 's3_path'), array('index' => $file_id)))) {
         $path_parts = pathinfo($s3_path);
         $url = str_replace("/objects", "/thumbnails", $path_parts['dirname']) . '/' . substr($path_parts['filename'], 0, 36) . '.jpg';
         return $url;

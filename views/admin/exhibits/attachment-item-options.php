@@ -2,10 +2,7 @@
 $item = $attachment->getItem();
 $caption = $attachment->caption;
 $file_id = $attachment->file_id;
-if (metadata($item, array('Item Type Metadata', 'fitdil_data'))) {
-    $files = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('all' => true));
-    $type = "fitdil";
-} elseif (metadata($item, array('Item Type Metadata', 's3_path'))) {
+if (metadata($item, array('Item Type Metadata', 's3_path'))) {
     $files = metadata($item, array('Item Type Metadata', 's3_path'), array('all' => true));
     $type = "s3";
 }
@@ -30,27 +27,18 @@ if (!metadata($item, 'public')) {
                 <?php foreach ($files as $index => $file): ?>
                     <?php
                     $selected = $file_id == $index;
-                    if ($type == "fitdil") {
-                        $fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index));
-                        $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
-                        $record_name = $fitdil_data["record-name"];
-                    } else {
-                        $parsed_url = parse_url($file);
-                        $key = ltrim($parsed_url["path"], '/');
-                        $record_name = substr(substr(basename($file), 0, -4), 37);
-                    }
-
-
-
+                    $parsed_url = parse_url($file);
+                    $key = ltrim($parsed_url["path"], '/');
+                    $record_name = substr(substr(basename($file), 0, -4), 37);
                     ?>
                     <li class="item-file <?php if ($selected)
-                        echo 'selected'; ?>">
+                                                echo 'selected'; ?>">
                         <label>
                             <img src="<?php echo square_thumbnail_url($item, $index); ?>" class="img-fluid"
                                 title="<?php echo $record_name; ?>">
                             <input id="file-<?php echo $index; ?>" type="radio" name="file_id"
                                 title="<?php echo $record_name; ?>" value="<?php echo $index; ?>" <?php if ($selected)
-                                          echo 'checked'; ?>>
+                                                                                                        echo 'checked'; ?>>
                             <div class="file-title"><?php echo $record_name; ?></div>
                         </label>
                     </li>
